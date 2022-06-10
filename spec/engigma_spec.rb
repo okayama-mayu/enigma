@@ -21,9 +21,7 @@ RSpec.describe Enigma do
   end
 
   it 'can create a final set of keys based on the keys and offsets' do
-    @enigma.create_keys("02715")
-    @enigma.create_offsets("040895")
-    expect(@enigma.create_final_keys).to eq({a: 3, b:27, c:73, d:20})
+    expect(@enigma.create_final_keys("02715", "040895")).to eq({a: 3, b:27, c:73, d:20})
   end
 
   it 'has a character set' do
@@ -48,7 +46,7 @@ RSpec.describe Enigma do
     })
   end
 
-  xit 'can encrypt a message' do
+  it 'can encrypt a message' do
     expect(@enigma.encrypt("hello world", "02715", "040895")).to eq({
       encryption: "keder ohulw",
       key: "02715",
