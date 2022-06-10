@@ -52,7 +52,15 @@ RSpec.describe Enigma do
       key: "02715",
       date: "040895"
     })
+  end
 
+  it 'can find the index position of a character' do
+    expect(@enigma.char_index("h")).to eq 7
+    expect(@enigma.char_index("e")).to eq 4
+  end
+
+  it 'can tell you the count of letters by which the character should shift' do
+    expect(@enigma.index_shift("02715", "040895")).to eq 3
   end
 
   xit 'generates a random key if no key is passed in' do
