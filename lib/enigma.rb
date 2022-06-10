@@ -1,5 +1,5 @@
 class Enigma
-  attr_reader :character_set
+  attr_reader :character_set, :shifts
 
   def initialize
     @character_set = ("a".."z").to_a << " "

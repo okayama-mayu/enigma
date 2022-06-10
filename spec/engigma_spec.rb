@@ -30,6 +30,10 @@ RSpec.describe Enigma do
     expect(@enigma.character_set[-1]).to eq " "
   end
 
+  it 'has shifts' do
+    expect(@enigma.shifts).to eq([:a, :b, :c, :d])
+  end
+
   it 'can encrypt a single letter' do
     expect(@enigma.encrypt("h", "02715", "040895")).to eq({
       encryption: "k",
