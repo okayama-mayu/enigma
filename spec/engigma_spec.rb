@@ -11,6 +11,16 @@ RSpec.describe Enigma do
     expect(@enigma).to be_instance_of Enigma
   end
 
+  it 'has a character set' do
+    expect(@enigma.character_set.count).to eq 27
+    expect(@enigma.character_set[0]).to eq "a"
+    expect(@enigma.character_set[-1]).to eq " "
+  end
+
+  it 'has shifts' do
+    expect(@enigma.shifts).to eq([:a, :b, :c, :d])
+  end
+
   it 'can create keys based on key input' do
     expect(@enigma.create_keys("02715").count).to eq 4
     expect(@enigma.create_keys("02715")).to eq([02, 27, 71, 15])
@@ -22,16 +32,6 @@ RSpec.describe Enigma do
 
   it 'can create a final set of keys based on the keys and offsets' do
     expect(@enigma.create_final_keys("02715", "040895")).to eq({a: 3, b:27, c:73, d:20})
-  end
-
-  it 'has a character set' do
-    expect(@enigma.character_set.count).to eq 27
-    expect(@enigma.character_set[0]).to eq "a"
-    expect(@enigma.character_set[-1]).to eq " "
-  end
-
-  it 'has shifts' do
-    expect(@enigma.shifts).to eq([:a, :b, :c, :d])
   end
 
   it 'can encrypt a single letter' do
