@@ -17,7 +17,15 @@ RSpec.describe EnigmaDecrypt do
     expect(@enigma_decrypt.character_set[-1]).to eq " "
   end
 
-  xit 'has shifts' do
-    expect(@enigma.shifts).to eq([:a, :b, :c, :d])
+  it 'has shifts' do
+    expect(@enigma_decrypt.shifts).to eq([:a, :b, :c, :d])
+  end
+
+  it 'can decrypt a message with a key and date' do
+    expect(@enigma_decrypt.decrypt("keder ohulw", "02715", "040895")).to eq({
+        decryption: "hello world",
+        key: "02715",
+        date: "040895"
+      })
   end
 end

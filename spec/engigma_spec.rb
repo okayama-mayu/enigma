@@ -67,14 +67,6 @@ RSpec.describe Enigma do
     expect(@enigma.index_shift("02715", "040895")).to eq 3
   end
 
-  it 'can decrypt a message with a key and date' do
-    expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq({
-        decryption: "hello world",
-        key: "02715",
-        date: "040895"
-      })
-  end
-
   xit 'generates a random key if no key is passed in' do
     expect(@key.size).to eq 5
     expect(@key.class).to eq String
