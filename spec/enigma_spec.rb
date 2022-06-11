@@ -80,8 +80,16 @@ RSpec.describe Enigma do
   end
 
   it 'can encrypt a message regardless of capitalization' do
-    expect(@enigma.encrypt("Hello World", "02715", "040895")).to eq({
+    expect(@enigma.encrypt("HELLO WORLD", "02715", "040895")).to eq({
         encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      })
+  end
+
+  it 'can encrypt a message with a character not in the character set' do
+    expect(@enigma.encrypt("HELLO WORLD!", "02715", "040895")).to eq({
+        encryption: "keder ohulw!",
         key: "02715",
         date: "040895"
       })
