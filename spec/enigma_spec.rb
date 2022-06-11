@@ -79,6 +79,14 @@ RSpec.describe Enigma do
       })
   end
 
+  it 'can encrypt a message regardless of capitalization' do
+    expect(@enigma.encrypt("Hello World", "02715", "040895")).to eq({
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      })
+  end
+
   xit 'generates a random key if no key is passed in' do
     expect(@key.size).to eq 5
     expect(@key.class).to eq String

@@ -9,7 +9,7 @@ class Enigma
 
   def encrypt(message, key, date = @date)
     {
-      encryption: encrypt_message(message, key, date).join,
+      encryption: encrypt_message(message.downcase, key, date).join,
       key: key,
       date: date
     }
