@@ -1,6 +1,6 @@
 require_relative 'enigma'
 
-class EnigmaDecrypt < Enigma
+class Decrypt < Enigma
 
   def initialize
     super
