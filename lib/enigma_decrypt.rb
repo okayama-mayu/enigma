@@ -6,7 +6,7 @@ class EnigmaDecrypt < Enigma
     super
   end
 
-  def decrypt(message, key, date)
+  def decrypt(message, key, date = @date)
     {
       decryption: decrypt_message(message, key, date).join,
       key: key,
