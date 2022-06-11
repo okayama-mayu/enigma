@@ -95,9 +95,14 @@ RSpec.describe Enigma do
       })
   end
 
-  xit 'generates a random key if no key is passed in' do
-    expect(@key.size).to eq 5
-    expect(@key.class).to eq String
-    expect(@key.to_i.class).to eq Integer
+  it 'has a default key' do
+    expect(@enigma.key.size).to eq 5
+    expect(@enigma.key.class).to eq String
+  end
+
+  it 'generates a random key if no key is passed in' do
+    expect(@enigma.encrypt("hello world!")[:key].size).to eq 5
+    expect(@enigma.encrypt("hello world!")[:key].class).to eq String
+    expect(@enigma.encrypt("hello world!")[:date]).to eq Date.today.strftime("%e%m%y")
   end
 end

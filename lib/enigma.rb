@@ -1,13 +1,14 @@
 class Enigma
-  attr_reader :character_set, :shifts, :date
+  attr_reader :character_set, :shifts, :date, :key
 
   def initialize
     @character_set = ("a".."z").to_a << " "
     @shifts = [:a, :b, :c, :d]
     @date = Date.today.strftime("%e%m%y")
+    @key = '%05d' % rand(0..99999)
   end
 
-  def encrypt(message, key, date = @date)
+  def encrypt(message, key = @key, date = @date)
     {
       encryption: encrypt_message(message.downcase, key, date).join,
       key: key,
@@ -26,7 +27,7 @@ class Enigma
         @character_set.rotate(char_index(char))[index_shift(key, date)]
       else
         char
-      end 
+      end
     end
   end
 
