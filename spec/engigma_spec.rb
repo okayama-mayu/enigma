@@ -68,13 +68,14 @@ RSpec.describe Enigma do
   end
 
   it 'can generate todays date' do
-    expect(@enigma.date).to eq("100622")
+    expect(@enigma.date).to eq(Date.today.strftime("%e%m%y"))
   end
-  xit 'can encrypt a message with a key and use todays date' do
+
+  it 'can encrypt a message with a key and use todays date' do
     expect(@enigma.encrypt("hello world", "02715")).to eq({
-      encryption: "keder ohulw",
+      encryption: "pmjdwhugztb",
       key: "02715",
-      date: "100622"
+      date: Date.today.strftime("%e%m%y")
       })
   end
 
