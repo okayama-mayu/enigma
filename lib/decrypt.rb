@@ -20,7 +20,11 @@ class Decrypt < Enigma
     # need to pull the char that matches encryption from @character_set
     # go the OPPOSITE direction as encryption; index_shift should be negative
     message.split("").map do |char|
-      @character_set.rotate(char_index(char))[-index_shift(key, date)]
+      if @character_set.include?(char)
+        @character_set.rotate(char_index(char))[-index_shift(key, date)]
+      else
+        char
+      end 
     end
   end
 end

@@ -42,4 +42,12 @@ RSpec.describe Decrypt do
         date: Date.today.strftime("%e%m%y")
       })
   end
+
+  it 'can decrypt a message with a key and date and characters that are not in the character set' do
+    expect(@decrypt.decrypt("keder ohulw!", "02715", "040895")).to eq({
+        decryption: "hello world!",
+        key: "02715",
+        date: "040895"
+      })
+  end
 end
