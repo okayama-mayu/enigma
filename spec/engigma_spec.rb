@@ -52,10 +52,10 @@ RSpec.describe Enigma do
 
   it 'can encrypt a message' do
     expect(@enigma.encrypt("hello world", "02715", "040895")).to eq({
-      encryption: "keder ohulw",
-      key: "02715",
-      date: "040895"
-    })
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      })
   end
 
   it 'can find the index position of a character' do
@@ -65,6 +65,17 @@ RSpec.describe Enigma do
 
   it 'can tell you the count of letters by which the character should shift' do
     expect(@enigma.index_shift("02715", "040895")).to eq 3
+  end
+
+  it 'can generate todays date' do
+    expect(@enigma.date).to eq("100622")
+  end
+  xit 'can encrypt a message with a key and use todays date' do
+    expect(@enigma.encrypt("hello world", "02715")).to eq({
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "100622"
+      })
   end
 
   xit 'generates a random key if no key is passed in' do
