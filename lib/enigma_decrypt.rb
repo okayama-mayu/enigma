@@ -7,7 +7,7 @@ class EnigmaDecrypt < Enigma
   end
 
   def decrypt(message, key, date = @date)
-    {
+    test = {
       decryption: decrypt_message(message, key, date).join,
       key: key,
       date: date

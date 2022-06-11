@@ -6,7 +6,7 @@ RSpec.describe EnigmaDecrypt do
   before :each do
     @enigma_decrypt = EnigmaDecrypt.new
     @enigma = Enigma.new
-    @encrypated = @enigma.encrypt("hello world", "02715")
+    @encrypted = @enigma.encrypt("hello world", "02715")
   end
 
   it 'is an EnigmaDecrypt' do
@@ -35,7 +35,7 @@ RSpec.describe EnigmaDecrypt do
       })
   end
 
-  xit 'decrypt a message with a key and use todays date' do
+  it 'decrypt a message with a key and use todays date' do
     expect(@enigma_decrypt.decrypt(@encrypted[:encryption], "02715")). to eq({
         decryption: "hello world",
         key: "02715",
