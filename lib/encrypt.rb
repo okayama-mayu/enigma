@@ -9,4 +9,4 @@ encrypted_text = Enigma.new.encrypt(original_text)
 encrypted_message.write(encrypted_text[:encryption])
 encrypted_message.close
 
-puts "Created #{ARGV[1]}"
+puts "Created '#{ARGV[1]}' with the key #{encrypted_text[:key]} and date #{encrypted_text[:date]}"
