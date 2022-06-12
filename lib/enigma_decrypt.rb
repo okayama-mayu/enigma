@@ -1,4 +1,4 @@
-require_relative 'enigma'
+require_relative 'enigma_encrypt'
 
 class Decrypt < Enigma
 
@@ -24,7 +24,7 @@ class Decrypt < Enigma
         @character_set.rotate(char_index(char))[-index_shift(key, date)]
       else
         char
-      end 
+      end
     end
   end
 end

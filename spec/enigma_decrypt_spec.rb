@@ -9,7 +9,7 @@ RSpec.describe Decrypt do
     @encrypted = @enigma.encrypt("hello world", "02715")
   end
 
-  it 'is an Decrypt' do
+  it 'is a Decrypt' do
     expect(@decrypt).to be_instance_of Decrypt
   end
 

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-11T11:40:48-05:00">2022-06-11T11:40:48-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-12T08:59:17-05:00">2022-06-12T08:59:17-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -71,7 +71,7 @@
       <tbody>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#612cc0b16789c8bfd648a62e25fce390c9d10147" class="src_link" title="lib/decrypt.rb">lib/decrypt.rb</a></td>
+            <td class="strong t-file__name"><a href="#6cf940c44f18dc9392d824e6b55155f217eadc33" class="src_link" title="lib/enigma_decrypt.rb">lib/enigma_decrypt.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">30</td>
             <td class="cell--number">11</td>
@@ -82,7 +82,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#c1b0180b60519fda3c2c25cc620422b78fe95443" class="src_link" title="lib/enigma.rb">lib/enigma.rb</a></td>
+            <td class="strong t-file__name"><a href="#bda9984b60d57c0fe4a0b09edac648093083f28d" class="src_link" title="lib/enigma_encrypt.rb">lib/enigma_encrypt.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">70</td>
             <td class="cell--number">30</td>
@@ -93,7 +93,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#f33bd3676d3f96a852b4f6147eda881115bfcc08" class="src_link" title="spec/decrypt_spec.rb">spec/decrypt_spec.rb</a></td>
+            <td class="strong t-file__name"><a href="#c23a7416f5784b8cef815103d99e4a54799c86ec" class="src_link" title="spec/enigma_decrypt_spec.rb">spec/enigma_decrypt_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">53</td>
             <td class="cell--number">24</td>
@@ -104,7 +104,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#511e7cf73d3a106e59973b9dc7dd35f55ea63e88" class="src_link" title="spec/enigma_spec.rb">spec/enigma_spec.rb</a></td>
+            <td class="strong t-file__name"><a href="#e9c008e7b087c94f1ac3067501ea1867e080b990" class="src_link" title="spec/enigma_encrypt_spec.rb">spec/enigma_encrypt_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">108</td>
             <td class="cell--number">47</td>
@@ -131,9 +131,9 @@
 
       <div class="source_files">
       
-        <div class="source_table" id="612cc0b16789c8bfd648a62e25fce390c9d10147">
+        <div class="source_table" id="6cf940c44f18dc9392d824e6b55155f217eadc33">
   <div class="header">
-    <h3>lib/decrypt.rb</h3>
+    <h3>lib/enigma_decrypt.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -164,7 +164,7 @@
 
             
 
-            <code class="ruby">require_relative &#39;enigma&#39;</code>
+            <code class="ruby">require_relative &#39;enigma_encrypt&#39;</code>
           </li>
         </div>
       
@@ -450,7 +450,7 @@
 
             
 
-            <code class="ruby">      end </code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -492,9 +492,9 @@
 </div>
 
       
-        <div class="source_table" id="c1b0180b60519fda3c2c25cc620422b78fe95443">
+        <div class="source_table" id="bda9984b60d57c0fe4a0b09edac648093083f28d">
   <div class="header">
-    <h3>lib/enigma.rb</h3>
+    <h3>lib/enigma_encrypt.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -1293,9 +1293,9 @@
 </div>
 
       
-        <div class="source_table" id="f33bd3676d3f96a852b4f6147eda881115bfcc08">
+        <div class="source_table" id="c23a7416f5784b8cef815103d99e4a54799c86ec">
   <div class="header">
-    <h3>spec/decrypt_spec.rb</h3>
+    <h3>spec/enigma_decrypt_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -1337,7 +1337,7 @@
 
             
 
-            <code class="ruby">require &#39;./lib/decrypt&#39;</code>
+            <code class="ruby">require &#39;./lib/enigma_decrypt&#39;</code>
           </li>
         </div>
       
@@ -1447,7 +1447,7 @@
 
             
 
-            <code class="ruby">  it &#39;is an Decrypt&#39; do</code>
+            <code class="ruby">  it &#39;is a Decrypt&#39; do</code>
           </li>
         </div>
       
@@ -1907,9 +1907,9 @@
 </div>
 
       
-        <div class="source_table" id="511e7cf73d3a106e59973b9dc7dd35f55ea63e88">
+        <div class="source_table" id="e9c008e7b087c94f1ac3067501ea1867e080b990">
   <div class="header">
-    <h3>spec/enigma_spec.rb</h3>
+    <h3>spec/enigma_encrypt_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -1951,7 +1951,7 @@
 
             
 
-            <code class="ruby">require &#39;./lib/enigma&#39;</code>
+            <code class="ruby">require &#39;./lib/enigma_encrypt&#39;</code>
           </li>
         </div>
       
@@ -2512,7 +2512,7 @@
 
             
 
-            <code class="ruby">  it &#39;can encrypt a message&#39; do</code>
+            <code class="ruby">  it &#39;can encrypt a message with a key and date&#39; do</code>
           </li>
         </div>
       
