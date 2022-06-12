@@ -17,16 +17,40 @@ RSpec.describe Encrypt do
     expect(@encrypt.character_set[-1]).to eq " "
   end
 
-  xit 'has shifts' do
+  it 'has shifts' do
     expect(@encrypt.shifts).to eq([:a, :b, :c, :d])
   end
 
-  xit 'can generate todays date' do
+  it 'can generate todays date' do
     expect(@encrypt.date).to eq(Date.today.strftime("%e%m%y"))
   end
 
-  xit 'has a default key' do
+  it 'has a default key' do
     expect(@encrypt.key.size).to eq 5
     expect(@encrypt.key.class).to eq String
+  end
+
+  it 'can encrypt a single letter' do
+    expect(@encrypt.encrypt("h", "02715", "040895")).to eq({
+      encryption: "k",
+      key: "02715",
+      date: "040895"
+    })
+  end
+
+  xit 'can encrypt two letters' do
+    expect(@encrypt.encrypt("he", "02715", "040895")).to eq({
+      encryption: "ke",
+      key: "02715",
+      date: "040895"
+    })
+  end
+
+  xit 'can encrypt a message with a key and date' do
+    expect(@encrypt.encrypt("hello world", "02715", "040895")).to eq({
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      })
   end
 end
