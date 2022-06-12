@@ -1,6 +1,6 @@
 require_relative 'enigma_encrypt'
 
-class EnigmaCracker < Enigma
+class EnigmaCrack < Enigma
 
   def initialize
     super
