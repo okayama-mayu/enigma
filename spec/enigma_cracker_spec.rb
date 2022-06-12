@@ -1,38 +1,42 @@
 require 'pry'
-require './lib/enigma_cracker'
+require './lib/enigma_cracker_v2'
 require './lib/enigma_encrypt'
 require 'date'
 
 RSpec.describe EnigmaCracker do
   before :each do
-    @crakcer = EnigmaCracker.new
-    @encrypter = Enigma.new
+    @cracker = EnigmaCracker.new
+    @encrypter = Encrypt.new
   end
 
   it 'is an EnigmaCracker' do
-    expect(@crakcer).to be_instance_of EnigmaCracker
+    expect(@cracker).to be_instance_of EnigmaCracker
   end
 
   it 'has a character set' do
-    expect(@crakcer.character_set.count).to eq 27
-    expect(@crakcer.character_set[0]).to eq "a"
-    expect(@crakcer.character_set[-1]).to eq " "
+    expect(@cracker.character_set.count).to eq 27
+    expect(@cracker.character_set[0]).to eq "a"
+    expect(@cracker.character_set[-1]).to eq " "
   end
 
   it 'has shifts' do
-    expect(@crakcer.shifts).to eq([:a, :b, :c, :d])
+    expect(@cracker.shifts).to eq([:a, :b, :c, :d])
   end
 
   it 'can generate todays date' do
-    expect(@crakcer.date).to eq(Date.today.strftime("%e%m%y"))
+    expect(@cracker.date).to eq(Date.today.strftime("%e%m%y"))
   end
 
   it 'has a default key' do
-    expect(@crakcer.key.size).to eq 5
-    expect(@crakcer.key.class).to eq String
+    expect(@cracker.key.size).to eq 5
+    expect(@cracker.key.class).to eq String
   end
 
-  it 'can crack an encryption with a date' do
+  it 'can return an array of index positions of the last 4 chars in the ciphertext' do
+    expect(@cracker.encrypted_index_array("vjqtbeaweqihssi")).to eq [7, 18, 18, 8]
+  end
+
+  xit 'can crack an encryption with a date' do
     expect(@encrypter.encrypt("hello world end", "08304", "291018")).to eq({
         encryption: "vjqtbeaweqihssi",
         key: "08304",

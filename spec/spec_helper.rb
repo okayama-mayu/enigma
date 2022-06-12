@@ -5,3 +5,4 @@ SimpleCov.start
 
 require_relative 'enigma_encrypt_spec'
 require_relative 'enigma_decrypt_spec'
+require_relative 'enigma_spec' 
