@@ -34,29 +34,29 @@ RSpec.describe Enigma do
     expect(@enigma.create_final_keys("02715", "040895")).to eq({a: 3, b:27, c:73, d:20})
   end
 
-  it 'can encrypt a single letter' do
-    expect(@enigma.encrypt("h", "02715", "040895")).to eq({
-      encryption: "k",
-      key: "02715",
-      date: "040895"
-    })
-  end
+  # it 'can encrypt a single letter' do
+  #   expect(@enigma.encrypt("h", "02715", "040895")).to eq({
+  #     encryption: "k",
+  #     key: "02715",
+  #     date: "040895"
+  #   })
+  # end
+  #
+  # it 'can encrypt two letters' do
+  #   expect(@enigma.encrypt("he", "02715", "040895")).to eq({
+  #     encryption: "ke",
+  #     key: "02715",
+  #     date: "040895"
+  #   })
+  # end
 
-  it 'can encrypt two letters' do
-    expect(@enigma.encrypt("he", "02715", "040895")).to eq({
-      encryption: "ke",
-      key: "02715",
-      date: "040895"
-    })
-  end
-
-  it 'can encrypt a message with a key and date' do
-    expect(@enigma.encrypt("hello world", "02715", "040895")).to eq({
-        encryption: "keder ohulw",
-        key: "02715",
-        date: "040895"
-      })
-  end
+  # it 'can encrypt a message with a key and date' do
+  #   expect(@enigma.encrypt("hello world", "02715", "040895")).to eq({
+  #       encryption: "keder ohulw",
+  #       key: "02715",
+  #       date: "040895"
+  #     })
+  # end
 
   it 'can find the index position of a character' do
     expect(@enigma.char_index("h")).to eq 7
@@ -71,40 +71,40 @@ RSpec.describe Enigma do
     expect(@enigma.date).to eq(Date.today.strftime("%e%m%y"))
   end
 
-  it 'can encrypt a message with a key and use todays date' do
-    expect(@enigma.encrypt("hello world", "02715")).to eq({
-      encryption: "pmjdwhugztb",
-      key: "02715",
-      date: Date.today.strftime("%e%m%y")
-      })
-  end
+  # it 'can encrypt a message with a key and use todays date' do
+  #   expect(@enigma.encrypt("hello world", "02715")).to eq({
+  #     encryption: "pmjdwhugztb",
+  #     key: "02715",
+  #     date: Date.today.strftime("%e%m%y")
+  #     })
+  # end
 
-  it 'can encrypt a message regardless of capitalization' do
-    expect(@enigma.encrypt("HELLO WORLD", "02715", "040895")).to eq({
-        encryption: "keder ohulw",
-        key: "02715",
-        date: "040895"
-      })
-  end
+  # it 'can encrypt a message regardless of capitalization' do
+  #   expect(@enigma.encrypt("HELLO WORLD", "02715", "040895")).to eq({
+  #       encryption: "keder ohulw",
+  #       key: "02715",
+  #       date: "040895"
+  #     })
+  # end
 
-  it 'can encrypt a message with a character not in the character set' do
-    expect(@enigma.encrypt("HELLO WORLD!", "02715", "040895")).to eq({
-        encryption: "keder ohulw!",
-        key: "02715",
-        date: "040895"
-      })
-  end
+  # it 'can encrypt a message with a character not in the character set' do
+  #   expect(@enigma.encrypt("HELLO WORLD!", "02715", "040895")).to eq({
+  #       encryption: "keder ohulw!",
+  #       key: "02715",
+  #       date: "040895"
+  #     })
+  # end
 
   it 'has a default key' do
     expect(@enigma.key.size).to eq 5
     expect(@enigma.key.class).to eq String
   end
 
-  it 'generates a random key if no key is passed in' do
-    expect(@enigma.encrypt("hello world!")[:key].size).to eq 5
-    expect(@enigma.encrypt("hello world!")[:key].class).to eq String
-    expect(@enigma.encrypt("hello world!")[:date]).to eq Date.today.strftime("%e%m%y")
-  end
+  # it 'generates a random key if no key is passed in' do
+  #   expect(@enigma.encrypt("hello world!")[:key].size).to eq 5
+  #   expect(@enigma.encrypt("hello world!")[:key].class).to eq String
+  #   expect(@enigma.encrypt("hello world!")[:date]).to eq Date.today.strftime("%e%m%y")
+  # end
 
   it 'can handle Stubs' do
     # date = double()

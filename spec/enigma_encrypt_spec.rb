@@ -53,4 +53,34 @@ RSpec.describe Encrypt do
         date: "040895"
       })
   end
+
+  it 'can encrypt a message with a key and use todays date' do
+    expect(@encrypt.encrypt("hello world", "02715")).to eq({
+      encryption: "pmjdwhugztb",
+      key: "02715",
+      date: Date.today.strftime("%e%m%y")
+      })
+  end
+
+  it 'can encrypt a message regardless of capitalization' do
+    expect(@encrypt.encrypt("HELLO WORLD", "02715", "040895")).to eq({
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      })
+  end
+
+  it 'can encrypt a message with a character not in the character set' do
+    expect(@encrypt.encrypt("HELLO WORLD!", "02715", "040895")).to eq({
+        encryption: "keder ohulw!",
+        key: "02715",
+        date: "040895"
+      })
+  end
+
+  it 'generates a random key if no key is passed in' do
+    expect(@encrypt.encrypt("hello world!")[:key].size).to eq 5
+    expect(@encrypt.encrypt("hello world!")[:key].class).to eq String
+    expect(@encrypt.encrypt("hello world!")[:date]).to eq Date.today.strftime("%e%m%y")
+  end
 end
