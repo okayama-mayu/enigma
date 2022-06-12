@@ -17,8 +17,12 @@ class EnigmaCrack < Enigma
     }
   end
 
-  def crack_message(ciphertext, date)
-    # @ciphertext_array = ciphertext.split("")
+  def ciphertext_array(ciphertext)
+    ciphertext.split("")
+  end
+
+  def keys_array (ciphertext, date)
+    @ciphertext_array = ciphertext.split("")
     # keys = [array of encrypted_index] - [offsets rotated to correct position] - [array of original_index]
   end
 
@@ -34,7 +38,5 @@ class EnigmaCrack < Enigma
     rotation = space_index % @shifts.count
     create_offsets(date).rotate!(rotation)
   end
-
-
 
 end

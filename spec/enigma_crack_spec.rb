@@ -44,6 +44,14 @@ RSpec.describe EnigmaCrack do
     expect(@crack.original_index).to eq [26, 4, 13, 3]
   end
 
+  it 'can return an array of the chars in the ciphertext' do
+    expect(@crack.ciphertext_array("vjqtbeaweqihssi")).to eq ["v", "j", "q", "t", "b", "e", "a", "w", "e", "q", "i", "h", "s", "s", "i"]
+  end
+
+  xit 'can return an array of keys given the ciphertext and date' do
+    expect(@crack.keys_array).to eq [3, 4, 5, 6]
+  end
+
   xit 'can crack an encryption with a date' do
     expect(@encrypter.encrypt("hello world end", "08304", "291018")).to eq({
         encryption: "vjqtbeaweqihssi",
