@@ -20,4 +20,8 @@ RSpec.describe EnigmaCracker do
   it 'has shifts' do
     expect(@enigma_cracker.shifts).to eq([:a, :b, :c, :d])
   end
+
+  it 'can generate todays date' do
+    expect(@enigma_cracker.date).to eq(Date.today.strftime("%e%m%y"))
+  end
 end
