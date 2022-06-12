@@ -1,10 +1,12 @@
 require 'pry'
 require './lib/enigma_cracker'
+require './lib/enigma_encrypt'
 require 'date'
 
 RSpec.describe EnigmaCracker do
   before :each do
     @crakcer = EnigmaCracker.new
+    @encrypter = Enigma.new
   end
 
   it 'is an EnigmaCracker' do
@@ -28,5 +30,18 @@ RSpec.describe EnigmaCracker do
   it 'has a default key' do
     expect(@crakcer.key.size).to eq 5
     expect(@crakcer.key.class).to eq String
+  end
+
+  it 'can crack an encryption with a date' do
+    expect(@encrypter.encrypt("hello world end", "08304", "291018")).to eq({
+        encryption: "vjqtbeaweqihssi",
+        key: "08304",
+        date: "291018"
+      })
+    expect(@cracker.crack("vjqtbeaweqihssi", "291018")).to eq({
+        decryption: "hello world end",
+        date: "291018",
+        key: "08304"
+      })
   end
 end
