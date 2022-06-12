@@ -27,6 +27,11 @@ RSpec.describe Decrypt do
     expect(@decrypt.date).to eq(Date.today.strftime("%e%m%y"))
   end
 
+  it 'has a default key' do
+    expect(@decrypt.key.size).to eq 5
+    expect(@decrypt.key.class).to eq String
+  end
+
   it 'can decrypt a message with a key and date' do
     expect(@decrypt.decrypt("keder ohulw", "02715", "040895")).to eq({
         decryption: "hello world",
