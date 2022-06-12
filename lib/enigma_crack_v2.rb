@@ -1,10 +1,11 @@
 require_relative 'enigma_encrypt'
 
 class EnigmaCrack < Enigma
+  attr_reader :original_index
 
   def initialize
     super
-    @_end_index_position = " end".split("").map { |char|
+    @original_index = " end".split("").map { |char|
       char_index(char) }
   end
 
@@ -27,11 +28,13 @@ class EnigmaCrack < Enigma
     last4_char.map { |char| char_index(char) }
   end
 
-  def rotate_offset(ciphertext, date)
+  def rotated_offset(ciphertext, date)
     @ciphertext_array = ciphertext.split("")
     space_index = @ciphertext_array.find_index(@ciphertext_array[-4])
     rotation = space_index % @shifts.count
     create_offsets(date).rotate!(rotation)
   end
+
+
 
 end

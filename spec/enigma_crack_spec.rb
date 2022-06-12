@@ -9,7 +9,7 @@ RSpec.describe EnigmaCrack do
     @encrypter = Encrypt.new
   end
 
-  it 'is an Enigmacrack' do
+  it 'is an EnigmaCrack' do
     expect(@crack).to be_instance_of Enigmacrack
   end
 
@@ -37,7 +37,11 @@ RSpec.describe EnigmaCrack do
   end
 
   it 'can return an array of the offsets rotated so the first offset element matches the empty space in _end' do
-    expect(@crack.rotate_offset("vjqtbeaweqihssi", "291018")).to eq [4, 6, 3, 2]
+    expect(@crack.rotated_offset("vjqtbeaweqihssi", "291018")).to eq [4, 6, 3, 2]
+  end
+
+  it 'can return an array of index positions of the last 4 chars in the original text' do
+    expect(@crack.original_index).to eq [26, 4, 13, 3]
   end
 
   xit 'can crack an encryption with a date' do
