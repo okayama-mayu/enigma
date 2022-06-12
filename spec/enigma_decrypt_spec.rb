@@ -5,8 +5,8 @@ require 'date'
 RSpec.describe Decrypt do
   before :each do
     @decrypt = Decrypt.new
-    @enigma = Enigma.new
-    @encrypted = @enigma.encrypt("hello world", "02715")
+    @encrypt = Encrypt.new
+    @encrypted = @encrypt.encrypt("hello world", "02715")
   end
 
   it 'is a Decrypt' do

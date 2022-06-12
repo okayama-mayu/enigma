@@ -83,4 +83,17 @@ RSpec.describe Encrypt do
     expect(@encrypt.encrypt("hello world!")[:key].class).to eq String
     expect(@encrypt.encrypt("hello world!")[:date]).to eq Date.today.strftime("%e%m%y")
   end
+
+  xit 'can encrypt with Stubs' do
+    allow(@encrypt).to receive(:key).and_return("82648")
+    allow(@encrypt).to receive(:date).and_return("240818")
+    expect(@encrypt.key).to eq("82648")
+    expect(@encrypt.date).to eq("240818")
+    expect(@encrypt.encrypt("hello world")).to eq({
+        encryption: "hello world",
+        key: "82648",
+        date: "240818"
+      })
+  end
+
 end
