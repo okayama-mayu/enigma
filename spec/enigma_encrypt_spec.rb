@@ -38,7 +38,7 @@ RSpec.describe Encrypt do
     })
   end
 
-  xit 'can encrypt two letters' do
+  it 'can encrypt two letters' do
     expect(@encrypt.encrypt("he", "02715", "040895")).to eq({
       encryption: "ke",
       key: "02715",
@@ -46,7 +46,7 @@ RSpec.describe Encrypt do
     })
   end
 
-  xit 'can encrypt a message with a key and date' do
+  it 'can encrypt a message with a key and date' do
     expect(@encrypt.encrypt("hello world", "02715", "040895")).to eq({
         encryption: "keder ohulw",
         key: "02715",
