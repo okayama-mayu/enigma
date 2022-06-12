@@ -5,8 +5,8 @@ require 'date'
 RSpec.describe Decrypt do
   before :each do
     @decrypt = Decrypt.new
-    @enigma = Enigma.new
-    @encrypted = @enigma.encrypt("hello world", "02715")
+    @encrypt = Encrypt.new
+    @encrypted = @encrypt.encrypt("hello world", "02715")
   end
 
   it 'is a Decrypt' do
@@ -25,6 +25,11 @@ RSpec.describe Decrypt do
 
   it 'can generate todays date' do
     expect(@decrypt.date).to eq(Date.today.strftime("%e%m%y"))
+  end
+
+  it 'has a default key' do
+    expect(@decrypt.key.size).to eq 5
+    expect(@decrypt.key.class).to eq String
   end
 
   it 'can decrypt a message with a key and date' do
