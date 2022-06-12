@@ -36,6 +36,10 @@ RSpec.describe EnigmaCracker do
     expect(@cracker.encrypted_index_array("vjqtbeaweqihssi")).to eq [7, 18, 18, 8]
   end
 
+  it 'can return an array of the offsets rotated so the first offset element matches the empty space in _end' do
+    expect(@cracker.rotate_offset("vjqtbeaweqihssi", "291018")).to eq [4, 6, 3, 2]
+  end
+
   xit 'can crack an encryption with a date' do
     expect(@encrypter.encrypt("hello world end", "08304", "291018")).to eq({
         encryption: "vjqtbeaweqihssi",
