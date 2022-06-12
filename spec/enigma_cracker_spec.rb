@@ -16,4 +16,8 @@ RSpec.describe EnigmaCracker do
     expect(@enigma_cracker.character_set[0]).to eq "a"
     expect(@enigma_cracker.character_set[-1]).to eq " "
   end
+
+  it 'has shifts' do
+    expect(@enigma_cracker.shifts).to eq([:a, :b, :c, :d])
+  end
 end
