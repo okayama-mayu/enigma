@@ -5,7 +5,7 @@ require 'date'
 
 RSpec.describe EnigmaCrack do
   before :each do
-    @crack = Enigmacrack.new
+    @crack = EnigmaCrack.new
     @encrypter = Encrypt.new
   end
 
