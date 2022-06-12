@@ -1,5 +1,5 @@
 require 'pry'
-require './lib/enigma'
+require './lib/enigma_encrypt'
 require 'date'
 
 RSpec.describe Enigma do

@@ -1,4 +1,4 @@
-require_relative 'enigma'
+require_relative 'enigma_encrypt'
 
 class Decrypt < Enigma
 
