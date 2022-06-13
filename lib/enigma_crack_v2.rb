@@ -36,16 +36,16 @@ class EnigmaCrack < Enigma
     keys_array
   end
 
-  def rotate_to_shift_order
+  def rotate_to_shift_order(ciphertext, date)
     space_shift = @space_index % @shifts.count
     if space_shift == 3
-      @combined.rotate!(1)
+      differences(ciphertext, date).rotate!(1)
     elsif space_shift == 2
-      @combined.rotate!(2)
+      differences(ciphertext, date).rotate!(2)
     elsif space_shift == 1
-      @combined.rotate!(3)
+      differences(ciphertext, date).rotate!(3)
     elsif space_shift == 0
-      @combined
+      differences(ciphertext, date)
     end
   end
 
