@@ -1,6 +1,9 @@
 require_relative 'enigma'
+require_relative 'decryptable'
 
 class EnigmaCrack < Enigma
+  include Decryptable
+
   attr_reader :original_index
 
   def initialize
@@ -15,6 +18,11 @@ class EnigmaCrack < Enigma
       key: key,
       date: date
     }
+  end
+
+  def crack_message(ciphertext, date)
+    keys = final_keys(ciphertext, date)
+
   end
 
   def final_keys(ciphertext, date)
