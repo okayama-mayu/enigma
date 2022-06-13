@@ -51,10 +51,13 @@ RSpec.describe EnigmaCrack do
   it 'can rotate the differences array so the first element has the a shift' do
     @crack.differences("vjqtbeaweqihssi", "291018")
     @crack.rotated_offset("vjqtbeaweqihssi", "291018")
-    expect(@crack.rotate_to_shift_order("vjqtbeaweqihssi", "291018")).to eq [8, 2, 3, 4]
+    expect(@crack.rotate_to_shift_order).to eq [8, 2, 3, 4]
   end
 
-  xit 'can return an array of keys given the ciphertext and date' do
+  it 'can return an array of keys given the ciphertext and date' do
+    @crack.differences("vjqtbeaweqihssi", "291018")
+    @crack.rotated_offset("vjqtbeaweqihssi", "291018")
+    @crack.rotate_to_shift_order("vjqtbeaweqihssi", "291018")
     expect(@crack.keys_array("vjqtbeaweqihssi", "291018")).to eq [8, 83, 30, 4]
   end
 

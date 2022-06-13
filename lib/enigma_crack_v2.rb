@@ -17,7 +17,26 @@ class EnigmaCrack < Enigma
     }
   end
 
-  def rotate_to_shift_order(ciphertext, date)
+  def keys_array(ciphertext, date)
+    keys_array = []
+    @combined.each do |difference|
+      if @combined.find_index(difference) == 0
+        binding.pry
+        keys_array << difference
+      elsif keys_array[-1].split("")[-1] != '0'
+        binding.pry
+        sum = difference
+        sum += @character_set.count until sum.split("")[0] == @combined[@combined.find_index(difference) - 1].split("")[-1]
+        keys_array << sum
+      else
+        binding.pry
+        keys_array << difference
+      end
+    end
+    binding.pry
+  end
+
+  def rotate_to_shift_order
     space_shift = @space_index % @shifts.count
     if space_shift == 3
       @combined.rotate!(1)
