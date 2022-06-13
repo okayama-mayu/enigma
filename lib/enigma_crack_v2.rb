@@ -1,4 +1,4 @@
-require_relative 'enigma_encrypt'
+require_relative 'enigma'
 
 class EnigmaCrack < Enigma
   attr_reader :original_index
@@ -17,26 +17,48 @@ class EnigmaCrack < Enigma
     }
   end
 
-  def ciphertext_array(ciphertext)
-    ciphertext.split("")
+
+  def differences(ciphertext, date)
+    # differences = [array of encrypted_index] - [offsets rotated to correct position] - [array of original_index]
+    combined_array = []
+    combined_array << encrypted_index_array(ciphertext) << rotated_offset(ciphertext, date) << @original_index
+    combined = combined_array.transpose.map do |triple|
+      triple.reduce(:-) % 27
+    end
   end
 
-  def keys_array (ciphertext, date)
-    @ciphertext_array = ciphertext.split("")
-    # keys = [array of encrypted_index] - [offsets rotated to correct position] - [array of original_index]
+
+
+  def key_generator(combined)
+    keys = {
+      :a => combined[1],
+      :b => combined[2]
+    }
   end
+
+  # def shift_encrypted_index_array
+  #   space_index = ciphertext.split("").find_index(ciphertext.split("")[-4])
+  #   space_shift = space_index % @shifts.count
+  #   if space_shift == 3
+  #     @index_array.rotate!(1)
+  #   elsif space_shift == 2
+  #     @index_array.rotate!(2)
+  #   elsif space_shift == 1
+  #     @index_array.rotate!(3)
+  #   elsif space_shift == 0
+  #     @index_array
+  #   end
+  #   binding.pry
+  # end
 
   def encrypted_index_array(ciphertext)
-    @ciphertext_array = ciphertext.split("")
-    last4_char = @ciphertext_array[-4..-1]
-    last4_char.map { |char| char_index(char) }
+    last4_char = ciphertext.split("")[-4..-1]
+    index_array = last4_char.map { |char| char_index(char) }
   end
 
   def rotated_offset(ciphertext, date)
-    @ciphertext_array = ciphertext.split("")
-    space_index = @ciphertext_array.find_index(@ciphertext_array[-4])
+    space_index = ciphertext.split("").find_index(ciphertext.split("")[-4])
     rotation = space_index % @shifts.count
     create_offsets(date).rotate!(rotation)
   end
-
 end

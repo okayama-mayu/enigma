@@ -10,7 +10,7 @@ RSpec.describe EnigmaCrack do
   end
 
   it 'is an EnigmaCrack' do
-    expect(@crack).to be_instance_of Enigmacrack
+    expect(@crack).to be_instance_of EnigmaCrack
   end
 
   it 'has a character set' do
@@ -44,12 +44,12 @@ RSpec.describe EnigmaCrack do
     expect(@crack.original_index).to eq [26, 4, 13, 3]
   end
 
-  it 'can return an array of the chars in the ciphertext' do
-    expect(@crack.ciphertext_array("vjqtbeaweqihssi")).to eq ["v", "j", "q", "t", "b", "e", "a", "w", "e", "q", "i", "h", "s", "s", "i"]
+  it 'can take the index position of the last 4 characters in the cyphertext and subtract out the offsets and the original index position of _end to arrive at a basis for the keys' do
+    expect(@crack.differences("vjqtbeaweqihssi", "291018")).to eq [4, 8, 2, 3]
   end
 
   xit 'can return an array of keys given the ciphertext and date' do
-    expect(@crack.keys_array).to eq [3, 4, 5, 6]
+    expect(@crack.keys_array("vjqtbeaweqihssi", "291018")).to eq [8, 83, 30, 4]
   end
 
   xit 'can crack an encryption with a date' do
