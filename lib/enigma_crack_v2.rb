@@ -22,7 +22,7 @@ class EnigmaCrack < Enigma
 
   def crack_message(ciphertext, date)
     keys = final_keys(ciphertext, date)
-    test = decrypt_message(ciphertext, keys, date)
+    decrypt_message(ciphertext, keys, date)
   end
 
   def final_keys(ciphertext, date)
@@ -41,7 +41,7 @@ class EnigmaCrack < Enigma
 
   def keys_array(ciphertext, date)
     keys_array = []
-    @combined.each do |difference|
+    rotate_to_shift_order(ciphertext, date).each do |difference|
       if @combined.find_index(difference) == 0
         # binding.pry
         keys_array << difference
