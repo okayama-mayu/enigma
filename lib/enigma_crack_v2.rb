@@ -21,19 +21,19 @@ class EnigmaCrack < Enigma
     keys_array = []
     @combined.each do |difference|
       if @combined.find_index(difference) == 0
-        binding.pry
+        # binding.pry
         keys_array << difference
-      elsif keys_array[-1].split("")[-1] != '0'
-        binding.pry
-        sum = difference
-        sum += @character_set.count until sum.split("")[0] == @combined[@combined.find_index(difference) - 1].split("")[-1]
+      elsif keys_array[-1].to_s.split("")[-1] != '0'
+        # binding.pry
+        sum = difference + @character_set.count
+        sum += @character_set.count until sum.to_s.split("")[0] == keys_array[-1].to_s.split("")[-1]
         keys_array << sum
       else
-        binding.pry
+        # binding.pry
         keys_array << difference
       end
     end
-    binding.pry
+    keys_array
   end
 
   def rotate_to_shift_order
