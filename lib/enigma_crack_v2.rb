@@ -17,6 +17,20 @@ class EnigmaCrack < Enigma
     }
   end
 
+  def final_keys(ciphertext, date)
+    nums_array = keys_array(ciphertext, date).map do |num|
+      ('%02d' % num.to_s).split("")
+    end
+    keys = nums_array.flat_map do |nums|
+      if nums_array.find_index(nums) == 3
+        nums
+      else
+        nums[0]
+      end
+    end
+    keys.join
+  end
+
   def keys_array(ciphertext, date)
     keys_array = []
     @combined.each do |difference|
