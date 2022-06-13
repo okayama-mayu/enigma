@@ -49,8 +49,8 @@ RSpec.describe EnigmaCrack do
   end
 
   it 'can rotate the differences array so the first element has the a shift' do
-    @crack.differences("vjqtbeaweqihssi", "291018")
-    @crack.rotated_offset("vjqtbeaweqihssi", "291018")
+    # @crack.differences("vjqtbeaweqihssi", "291018")
+    # @crack.rotated_offset("vjqtbeaweqihssi", "291018")
     expect(@crack.rotate_to_shift_order("vjqtbeaweqihssi", "291018")).to eq [8, 2, 3, 4]
   end
 
@@ -58,6 +58,10 @@ RSpec.describe EnigmaCrack do
     @crack.rotated_offset("vjqtbeaweqihssi", "291018")
     @crack.rotate_to_shift_order("vjqtbeaweqihssi", "291018")
     expect(@crack.keys_array("vjqtbeaweqihssi", "291018")).to eq [8, 83, 30, 4]
+  end
+
+  it 'can return the index value of the space before end in the ciphertext' do
+    expect(@crack.space_index("vjqtbeaweqihssi")).to eq 11
   end
 
   it 'can take the keys array and turn it into the keys' do
@@ -68,7 +72,10 @@ RSpec.describe EnigmaCrack do
   end
 
   it 'can crack a message with the final keys, the given date, and the given ciphertext' do
-    expect(@crack.crack_message("vjqtbeaweqihssi", "291018")).to eq ("hello world end")
+    @crack.rotated_offset("vjqtbeaweqihssi", "291018")
+    @crack.rotate_to_shift_order("vjqtbeaweqihssi", "291018")
+    @crack.keys_array("vjqtbeaweqihssi", "291018")
+    expect(@crack.crack_message("vjqtbeaweqihssi", "291018").join).to eq ("hello world end")
   end
 
   xit 'can crack an encryption with a date' do
