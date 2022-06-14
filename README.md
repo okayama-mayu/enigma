@@ -16,4 +16,4 @@ To the best of my knowledge, I believe the classes, methods, and variables are w
 My test coverage metrics according to SimpleCov are at 100%. However, I was not able to implement mocks or stubs in an effective manner, although I did successuflly implement one test in the `enigma_spec.rb` file and attempted to replicate CLI user inputs in `enigma_encrypt_spec.rb` (see commented out test at line 95).
 
 #### Version Control: 3
-Due to an error in creating the GitHub repository, my commits for Encrypt and Decrypt were chunked together and pushed to main instead of as a branch/pull request. However, I do have 6 branches with 5 merges and 43 commits as of the time of writing. I was not as consistent with my commits as I should have been, and they include multiple pieces of functionality. 
+Due to an error in creating the GitHub repository, my commits for Encrypt and Decrypt were chunked together and pushed to main instead of as a branch/pull request. However, I do have 6 branches with 5 merges and over 60 commits as of the time of writing. I was not as consistent with my commits as I should have been, and they include multiple pieces of functionality. 
