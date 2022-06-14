@@ -1,6 +1,7 @@
 require_relative 'enigma'
 
 class Encrypt < Enigma
+  attr_reader :character_set, :shifts, :date, :key
 
   def initialize
     super
