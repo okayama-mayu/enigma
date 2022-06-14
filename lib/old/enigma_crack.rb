@@ -1,7 +1,7 @@
 require_relative 'enigma'
 require_relative 'decryptable'
 
-class EnigmaCrack < Enigma
+class Crack < Enigma
   include Decryptable
 
   attr_reader :original_index
@@ -14,7 +14,7 @@ class EnigmaCrack < Enigma
 
   def crack(ciphertext, date = @date)
     {
-      decryption: crack_message(ciphertext.downcase, date).join,
+      decryption: crack_message(ciphertext.strip.downcase, date).join,
       key: final_keys(ciphertext, date),
       date: date
     }
@@ -36,7 +36,7 @@ class EnigmaCrack < Enigma
         nums[0]
       end
     end
-    keys.join
+    keys.join 
   end
 
   def keys_array(ciphertext, date)

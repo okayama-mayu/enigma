@@ -32,6 +32,10 @@ RSpec.describe Decrypt do
     expect(@decrypt.key.class).to eq String
   end
 
+  it 'can create an array of the decrypted letters' do
+    expect(@decrypt.decrypt_message("keder ohulw", "02715", "040895")).to eq ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+  end
+
   it 'can decrypt a message with a key and date' do
     expect(@decrypt.decrypt("keder ohulw", "02715", "040895")).to eq({
         decryption: "hello world",

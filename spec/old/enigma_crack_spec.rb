@@ -1,16 +1,16 @@
 require 'pry'
-require './lib/enigma_crack_v2'
+require './lib/enigma_crack'
 require './lib/enigma_encrypt'
 require 'date'
 
-RSpec.describe EnigmaCrack do
+RSpec.describe Crack do
   before :each do
-    @crack = EnigmaCrack.new
+    @crack = Crack.new
     @encrypter = Encrypt.new
   end
 
-  it 'is an EnigmaCrack' do
-    expect(@crack).to be_instance_of EnigmaCrack
+  it 'is an Crack' do
+    expect(@crack).to be_instance_of Crack
   end
 
   it 'has a character set' do
